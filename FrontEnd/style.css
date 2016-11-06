@@ -1,0 +1,294 @@
+
+body{
+  margin: 0;
+  background-color: lightblue;
+  background-image: url("http://www.claytonhotelgalway.ie/wp-content/uploads/2015/10/galway-swimming-pool-membership.jpg");
+  background-repeat: repeat-y;
+  margin-bottom: 10px;
+}
+
+.stranica{
+  margin-left: 10%;
+  width: 80%;
+}
+
+div.stranica{
+  position: absolute;
+  min-height: 90%;
+  /*
+  border-right: 1px solid lightyellow;
+  border-left: 1px solid lightyellow;
+  */
+  margin-bottom: 30px;
+}
+
+html {
+  height: 100%;
+}
+body {
+  min-height: 100%;
+}
+
+.meni{
+
+}
+
+ul.meni {
+  width: auto;
+  background-color: #514F94;
+  color: #B8B6ED;
+  font-family: 'PT Sans', sans-serif;
+  font-weight: bold;
+  text-transform: uppercase;
+  /* border-top: 1px solid blue;
+  border-bottom: 1px solid blue; */
+  border-radius: 5px;
+  justify-content: space-around;
+}
+
+ul.meni>li{
+  display: inline-block;
+  display: inline-flex;
+  border-right: 2px;
+  border-right-style: solid;
+  border-right-color: #B8B6ED;
+  padding-left: 0%;
+  padding-right: 1%;
+  margin: 10px 1% 10px 0;
+
+}
+
+ul.meni>li:last-child{
+  border-right: none;
+}
+
+ul.meni>li>a{
+  color: inherit;
+  font-style: inherit;
+  text-decoration: inherit;
+  cursor: pointer;
+}
+
+ul.meni>li>a:hover{
+  color: #E00B1F;
+}
+
+.kocka{
+  position: absolute;
+  background-color: #B8B6ED;
+  min-height: 100%;
+  width: 100%;
+  border-radius: 5px;
+  color: #514F94;
+}
+
+.slika-omotac{
+  position: relative;
+  width: 150px;
+  align-self: center;
+  margin: auto;
+}
+
+.slika-omotac>img{
+  width: 100%;
+}
+
+.malakocka{
+  height: 250px;
+  width: 250px;
+  max-width: 100%;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.malikrug>img{
+  max-width: 100%;
+  width: 100%;
+  margin: auto;
+}
+
+.horizontalni-kontejner{
+  display: flex;
+  flex-wrap: wrap;
+  border-radius: 5px;
+  margin: 30px 0;
+  justify-content: space-between;
+  padding: 0 3%;
+}
+
+.prikaz{
+  width: 32%;
+  min-height: 130px;
+  background-color: lightgray;
+  box-sizing: border-box;
+  border-radius: 5px;
+}
+
+.prikaz img{
+  max-width: 90%;
+  margin-left: 5%;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+}
+
+.prikaz .ime-trenera{
+  text-align: center;
+  margin-bottom: 10px;
+}
+.naslov-stranice{
+  color: #514F94;
+  font-family: 'PT Sans', sans-serif;
+  font-weight: bold;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.podinfo{
+  font-family: 'PT Sans', sans-serif;
+  font-weight: bold;
+  font-style: italic;
+  text-align: center;
+  color: #514F94;
+  width: 100%;
+  margin: auto;
+}
+
+div.horizontalni-kontejner>div.prikaz:last-child{
+}
+
+.blanko{
+  width: 100%;
+  height: 30px;
+}
+
+.novost{
+  padding: 5px;
+  font-family: 'PT Sans', sans-serif;
+}
+
+.novost>.novost-naslov{
+  font-weight: bold;
+  text-align: center;
+}
+
+.novost>.novost-tekst{
+  text-align: center;
+}
+
+.prikaz-forma-inline{
+  width: 48%;
+}
+
+.prikaz-forma-inline input[type=text]{
+  width: 90%;
+  border: none;
+  border-radius: 5px;
+  padding: 5px;
+}
+.prikaz-forma-inline input[type=email]{
+  width: 90%;
+  border: none;
+  border-radius: 5px;
+  padding: 5px;
+}
+.prikaz-forma-inline select{
+  width: 90%;
+  border: none;
+  border-radius: 5px;
+  padding: 5px;
+}
+.prikaz-forma-inline input[type=range]{
+  width: 90%;
+  margin: 0;
+  border-radius: 5px;
+}
+.prikaz-forma-velika textarea{
+  width: 95%;
+  border: none;
+  border-radius: 5px;
+  padding: 5px;
+  resize: none;
+  margin: auto;
+}
+.prikaz-forma-velika{
+  width: 100%;
+}
+
+.novost>.forma-naslov{
+  font-weight: bold;
+}
+
+.forma-dugme{
+  border: none;
+  border-radius: 5px;
+  padding: 5px;
+  margin-top: 5px;
+  color: #514F94;
+}
+
+.prikaz-o-nama{
+  width: 100%;
+  min-height: 200px;
+  background-color: lightgray;
+  border-radius: 5px;
+  font-family: 'PT Sans', sans-serif;
+  font-weight: bold;
+  text-transform: uppercase;
+  padding: 10px;
+}
+
+.page-break{
+  width: 100%;
+  display: flex;
+  border-top: dashed #B8B6ED 1px;
+  margin: 10px 0px;
+}
+
+.prikaz-o-nama h3{
+  width: 100%;
+  text-align: center;
+}
+
+.prikaz-o-nama p{
+  width: 100%;
+  text-align: center;
+}
+
+
+
+@media only screen and (max-width: 768px) {
+  body{
+    background: url("http://img13.deviantart.net/76bd/i/2007/051/c/d/water_texture_by_simplybackgrounds.jpg");
+    background-repeat: repeat;
+  }
+    .prikaz {
+        width: 100%;
+        margin-top: 15px;
+    }
+    .horizontalni-kontejner{
+      margin: 0;
+    }
+    ul.meni{
+      padding: 10px 0;
+      padding-left: 2px;
+    }
+    ul.meni > li{
+      display: block;
+      border-style: none;
+      border: none;
+      text-decoration: underline;
+      text-align: center;
+    }
+    ul.meni > li > span{
+      text-decoration: none;
+    }
+}
+
+/*  COLOR PALLETE
+
+blue eyes #514F94
+
+periwinkle #B8B6ED
+
+lemony yellow #FEFFA5  */
