@@ -73,17 +73,20 @@ var linkovanje = function() {
 					var posaljiDugme = document.getElementsByClassName("forma-dugme")[0];
 					var smth = document.getElementsByClassName("novost-tekst")[0];
 					var was = document.getElementsByClassName("novost-tekst")[0].innerHTML;
+					var valid = true;
 
 					var buttonFeedback = document.getElementsByClassName("forma-dugme")[2];
 					var wasFeedback = document.getElementsByClassName("novost-tekst")[2].innerHTML;
 					var smth1 = document.getElementsByClassName("novost-tekst")[2];
 					var feedback = document.getElementById("feedback");
+					var valid1 = false;
 						
 					var enableButton = function(){
 						if(posaljiDugme.disabled == true) {
 							posaljiDugme.disabled = false;
 							smth.innerHTML = was;
 							smth.style.color = '#514F94';
+							valid = true;
 						}
 					}
 
@@ -92,6 +95,7 @@ var linkovanje = function() {
 							buttonFeedback.disabled = false;
 							smth1.innerHTML = wasFeedback;
 							smth1.style.color = '#514F94';
+							valid1 = true;
 						}
 					}
 
@@ -117,22 +121,28 @@ var linkovanje = function() {
 							smth.innerHTML = "Niti jedno polje ne smije biti przno, molimo unesite odgovarajuće podatke!";
 							smth.style.color = "red";
 							posaljiDugme.disabled = true;
+							valid = false;
 						}
 						else if(!vIme) {
 							smth.innerHTML = "Greska prilikom unošenja podataka u polje 'Vase ime', molimo ponovite unos!";
 							smth.style.color = "red";
 							posaljiDugme.disabled = true;
+							valid = false;
 						}
 						else if(!vMail) {
 							smth.innerHTML = "Greska prilikom unošenja podataka u polje 'Vasa email adresa', molimo ponovite unos!";
 							smth.style.color = "red";
 							posaljiDugme.disabled = true;
+							valid = false;
 						}
 						else if(!vPitanje) {
 							smth.innerHTML = "Greska prilikom unošenja podataka u polje 'Vase pitanje', molimo ponovite unos!";
 							smth.style.color = "red";
 							posaljiDugme.disabled = true;
+							valid = false;
 						}
+
+						if(valid) spasavanje("forma1");
 					}
 
 					buttonFeedback.onclick = function() {
@@ -143,7 +153,10 @@ var linkovanje = function() {
 							smth1.innerHTML = "Greska prilikom unošenja podataka, molimo ponovite unos!";
 							smth1.style.color = "red";
 							buttonFeedback.disabled = true;
+							valid1 = false;
 						}
+
+						if(valid) spasavanje("forma2");
 					}
 
 					function validirajInput(input, tip) {
@@ -176,4 +189,28 @@ var linkovanje = function() {
 	});
 }
 
+window.addEventListener("reload", function() {
+	document.getElementsByName("name")[0].innerHTML = localStorage.getItem("ime");
+	document.getElementsByName("name")[1].innerHTML = localStorage.getItem("email");
+	document.getElementsByName("name")[2].innerHTML = localStorage.getItem("pitanje");
+	document.getElementsByClassName("forma-dugme")[2].innerHTML = localStorage.getItem("feedback");
+});
+
 linkovanje();
+
+var spasavanje = function(type) {
+	if(type === "forma1") {
+		var ime = document.getElementsByName("name")[0].value;
+		var email = document.getElementsByName("name")[1].value;
+		var pitanje = document.getElementsByName("name")[2].value;
+
+		localStorage.setItem("ime", ime);
+		localStorage.setItem("email", email);
+		localStorage.setItem("pitanje", pitanje);
+	}
+
+	else {
+		var feedback = document.getElementById("feedback");
+		localStorage.setItem("feedback", feedback.value);
+	}
+}
