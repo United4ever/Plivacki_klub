@@ -1,7 +1,7 @@
 var linkovanje = function() {
 
 	var pages = document.getElementsByClassName("pages");
-
+	
 	pages[0].addEventListener("click", function() {
 		var x = new XMLHttpRequest();
 		x.onreadystatechange = function() {
@@ -142,11 +142,15 @@ var linkovanje = function() {
 							valid = false;
 						}
 
-						if(valid) spasavanje("forma1");
+						if(valid) {
+							spasavanje("forma1");
+							ime.value = "";
+							email.value = "";
+							pitanje.value = "";
+						}
 					}
 
 					buttonFeedback.onclick = function() {
-						console.log(feedback.value + " " + wasFeedback);
 						var vFeedback = validirajInput(feedback.value, "feedback");
 
 						if(feedback.value.length == 0 || !vFeedback) {
@@ -156,7 +160,10 @@ var linkovanje = function() {
 							valid1 = false;
 						}
 
-						if(valid) spasavanje("forma2");
+						if(valid) {
+							spasavanje("forma2");
+							feedback.value = "";
+						}
 					}
 
 					function validirajInput(input, tip) {
@@ -170,6 +177,25 @@ var linkovanje = function() {
 						else if(tip === "feedback") return patternFeedback.test(input);
 						return patternPitanje.test(input);
 					}
+
+					var trenerDugme = document.getElementsByClassName("forma-dugme")[1];
+					trenerDugme.addEventListener("click", function() {
+						var select = document.getElementById("selekt");
+						var selectValue = select.options[select.selectedIndex].text;
+						var range = document.getElementById("rejndz").value;
+
+						//select == koji trener \\// range == koja ocjena
+						var data = "type=forma3" + "&select=" + selectValue + "&range=" + range;
+						var x = new XMLHttpRequest();
+						x.onreadystatechange = function() {
+							if(x.readyState == 4){
+								
+							}
+						}
+						x.open("POST", "serijalizacija.php", true);		
+						x.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+						x.send(data);
+					});
 				}
 				formeJS();
 			}
@@ -187,14 +213,38 @@ var linkovanje = function() {
 		x.open("GET", "onamaContent.html", true);		
 		x.send();
 	});
-}
+	pages[5].addEventListener("click", function() {
+		var uname = prompt("Unesite vas username:");
+		var pass = prompt("...a sada i vas password:");
 
-window.addEventListener("reload", function() {
-	document.getElementsByName("name")[0].innerHTML = localStorage.getItem("ime");
-	document.getElementsByName("name")[1].innerHTML = localStorage.getItem("email");
-	document.getElementsByName("name")[2].innerHTML = localStorage.getItem("pitanje");
-	document.getElementsByClassName("forma-dugme")[2].innerHTML = localStorage.getItem("feedback");
-});
+		var x = new XMLHttpRequest();
+		var loginInfo;
+		x.onreadystatechange = function() {
+			if(x.readyState == 4){
+				loginInfo = x.responseText;
+				if(loginInfo === 'yes') {
+					var xhr = new XMLHttpRequest();
+					xhr.onreadystatechange = function() {
+						if(x.readyState == 4){
+							document.getElementsByClassName("kocka")[0].innerHTML = xhr.responseText;
+						}
+					}
+					xhr.open("GET", "adminContent.html", true);	
+					xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");	
+					xhr.send();
+				}
+				else if(loginInfo === 'no') {
+					alert("Vi niste admin, cao...");
+				}
+			}
+		}
+		var data = "type=login" + "&username=" + uname + "&pass=" + pass;
+
+		x.open("POST", "login.php", true);		
+		x.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+		x.send(data);
+	});
+}
 
 linkovanje();
 
@@ -204,13 +254,28 @@ var spasavanje = function(type) {
 		var email = document.getElementsByName("name")[1].value;
 		var pitanje = document.getElementsByName("name")[2].value;
 
-		localStorage.setItem("ime", ime);
-		localStorage.setItem("email", email);
-		localStorage.setItem("pitanje", pitanje);
-	}
+		var data = "type=" + type + "&ime=" + ime + "&email=" + email + "&pitanje=" + pitanje;
 
-	else {
-		var feedback = document.getElementById("feedback");
-		localStorage.setItem("feedback", feedback.value);
+		var x = new XMLHttpRequest();
+		x.onreadystatechange = function() {
+			if(x.readyState == 4){
+				
+			}
+		}
 	}
+	else {
+		var feedback = document.getElementById("feedback").value;
+
+		var data = "type=forma2" + "&feedback=" + feedback;
+		
+		var x = new XMLHttpRequest();
+		x.onreadystatechange = function() {
+			if(x.readyState == 4){
+				
+			}
+		}
+	}
+	x.open("POST", "serijalizacija.php", true);		
+	x.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+	x.send(data);
 }

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+	<row>
+		<ime>Testno Ime</ime>
+		<email>test@test.com</email>
+		<pitanje>Test?</pitanje>
+	</row>
+<row><ime>Edin</ime><email>mail@mail.com</email><pitanje>Moje neko pitanje?</pitanje></row><row><ime>Edin</ime><email>mail@mail.com</email><pitanje>Moje neko pitanje?</pitanje></row><row><ime>Meho Kuduzovic</ime><email>mehin@mail.com</email><pitanje>Ima i Meho nesta da pita?</pitanje></row><row><select>Trener 1</select><range>5</range></row><row><select>Trener 2</select><range>8</range></row><row><ime>Edin</ime><email>mail@mail.com</email><pitanje>Edinovo pitanje?</pitanje></row><row><ime>Edin</ime><email>mail@mail.com</email><pitanje>Edinovo novo pitanje?</pitanje></row></root>

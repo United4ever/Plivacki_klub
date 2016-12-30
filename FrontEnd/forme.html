@@ -20,6 +20,7 @@
         <li><a class="pages" href="#">Galerija</a></li>
         <li><a class="pages" href="#">Forme</a></li>
         <li><a class="pages" href="#">O nama</a></li>
+        <li><a class="pages" href="#">Only for admins</a></li>
       </ul>
 
 
@@ -53,14 +54,14 @@
               </p>
               <form>
                 <label>Odaberite trenera</label><br />
-                <select>
+                <select id="selekt">
                   <option value="trener1">Trener 1</option>
                   <option value="trener2">Trener 2</option>
                   <option value="trener3">Trener 3</option>
                   <option value="trener4">Trener 4</option>
                 </select><br />
                 <label>Ocjena</label><br />
-                <input type="range" min="1" max="10" value="5" /><br />
+                <input type="range" min="1" max="10" value="5" id="rejndz" /><br />
                 <input type="button" value="Posalji" class="forma-dugme" />
               </form>
               <p class="novost-tekst">
@@ -91,9 +92,7 @@
 
     </div>
 
-    <script src="formeJS.js"></script>
-
     <script src="linkovanje.js"></script>
-
+    <script src="select.js"></script>
   </body>
 </html>
