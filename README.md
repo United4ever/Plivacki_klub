@@ -39,3 +39,23 @@ Spirala broj 2:
 		formeContent.html - pomocni .html za Ajax call
 		treneriContent.html - pomocni .html za Ajax call
 		onamaContent.html - pomocni .html za Ajax call
+		
+Spirala broj 3:
+	1. Urađeno je:
+		- serijalizacija podataka, koji se unose preko formi, u .xml fajlove
+		- dodan je admin.html dokument koji sadrži button-e za brisanje slogova u fajlovima, te generisanje .csv i .pdf fajlova
+		- urađena je i server-side validacija podataka, koristeći regex, koja između ostaloga onemogućava XSS napad
+		- omogućeno je i generisanje izještaja u .pdf formatu, te povlačenje sadržaja .xml dokumenta u .csv formatu
+		- sva komunikacija client - server je urađena koristeći AJAX, tj. nema direktnog poziva .php skripti, čak ni za login
+	2. Nije urađeno:
+		- zahtjev pod 4., tj. nije omogućen search sa prijedlozima
+		- nije projekat deployan na Open Shift
+	3. Bugova ne bi trebalo da ima, barem nisu primjećeni
+	4. Kao i pod 3. 
+	5. Novododani fajlovi:
+		- admin.html - buttoni koji omogućavaju CRUD, isključivo adminu
+		- adminContent.html - samo html sadržaj potreban prilikom AJAX poziva 
+		- adminJS.js - popratni javascript kod potreban za funkcionalnosti vezane za admin.html fajl
+		- adminPHP.php - popratni php kod potreban za funkcionalnosti vezane za admin.html fajl
+		- login.php - serverski kod koji služi za identifikaciju admina
+		- serijalizacija.php - kod putem kojeg se izvršava serijalizacija novododanih podataka u .xml fajlove
