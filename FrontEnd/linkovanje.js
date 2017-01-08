@@ -227,10 +227,10 @@ var linkovanje = function() {
 					xhr.onreadystatechange = function() {
 						if(x.readyState == 4){
 							document.getElementsByClassName("kocka")[0].innerHTML = xhr.responseText;
+							console.log(xhr.responseText);
 						}
 					}
 					xhr.open("GET", "adminContent.html", true);	
-					xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");	
 					xhr.send();
 				}
 				else if(loginInfo === 'no') {

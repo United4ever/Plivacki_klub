@@ -39,6 +39,19 @@ var admin = function() {
 		x.setRequestHeader("Content-type", "application/x-www-form-urlencoded");		
 		x.send(data);
 	});
+
+	dugmad[3].addEventListener("click", function() {
+		var x = new XMLHttpRequest();
+		x.onreadystatechange = function() {
+			if(x.readyState == 4){
+				
+			}
+		}
+		var data = "type=db";
+		x.open("POST", "adminPHP.php", true);
+		x.setRequestHeader("Content-type", "application/x-www-form-urlencoded");		
+		x.send(data);
+	});
 }
 
 admin();
