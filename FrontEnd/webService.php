@@ -10,9 +10,9 @@
 	$arr = array();
 
 	while ($row = mysqli_fetch_array($sql)) {
-		$arr[] = $row[1];
+		$arr[] = $row["ocjena"];
 	}
 
-	echo json_encode($arr);
+	echo "{\"Ocjene\": " . json_encode($arr) . "}";
 
 ?>
