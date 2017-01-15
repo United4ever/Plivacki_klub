@@ -59,3 +59,20 @@ Spirala broj 3:
 		- adminPHP.php - popratni php kod potreban za funkcionalnosti vezane za admin.html fajl
 		- login.php - serverski kod koji služi za identifikaciju admina
 		- serijalizacija.php - kod putem kojeg se izvršava serijalizacija novododanih podataka u .xml fajlove
+		
+Spirala broj 4:
+	1. Urađeno je:
+		- napravljena sql baza podataka sa tri tabele, i to: pitanje, feedback, ocjene
+		- editovana već postojeća php skripta, kodom koji prebacuje sadržaj xml fajlova u odgovarajuće tebele u bazi, te dodan 			html i css code po potrebi
+		- skripte prepravljene da se svaki unos sa formi spašava u bazu, a ne u xml, te da se podaci povlače iz baze
+		- napravljena skripta koja služi kao web servis, s time da je izričito napisao u specifikaciji zadatka da 	
+		servis mora vraćati podatke u JSON formatu, te samim time i nisu implementirane ostale funkcionalnosti REST servisa
+		- korišten postman da se testira servis
+	2 Nije urađeno:
+		- deploy na open shift
+	3. Bugovi nisu primijećeni
+	4. Kao i pod 3
+	5. Novododani fajlovi: 
+		- dump.sql - dump baze
+		- webService.php - skripta koja sadrži web servis
+	
